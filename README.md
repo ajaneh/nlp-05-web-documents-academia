@@ -1,137 +1,33 @@
-# nlp-05-web-documents
+# Project 05: TODO
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
-[![CI](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml)
-[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/nlp-05-web-documents/)
-
 [![uv managed](https://img.shields.io/badge/uv-managed-DE5FE9)](https://docs.astral.sh/uv/)
 [![ty type checked](https://img.shields.io/badge/ty-type_checked-2F80ED)](https://docs.astral.sh/ty/)
 [![Zensical docs](https://img.shields.io/badge/Zensical-docs-purple)](https://zensical.org/)
 [![MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
-> Acquire, validate, and transform HTML web documents using Python.
+- **Author:** Alex Heyert
+- **Date:** November 2026
 
 ## Project Overview
 
-Author: Denise Case
-
-Date: 2026 October
-
-Fifth project in the Web Mining and Applied NLP course.
-
-This project introduces web document acquisition
-and structured information extraction from HTML.
-
-The goal is to retrieve a web page,
-validate its document structure,
-extract meaningful text and metadata,
-and save the results for analysis.
-
-The project extends the EVTL pipeline approach
-introduced in Module 4 to work with HTML documents
-rather than JSON API responses.
-
-The project is configured in
-[pyproject.toml](pyproject.toml).
-
-## Data
-
-The example retrieves an academic paper's abstract page
-from [arXiv](https://arxiv.org/abs/2602.20021).
-
-The source document contains information such as:
-
-- Paper title.
-- Authors.
-- Abstract.
-- Subject categories.
-- Submission information.
-- arXiv identifier.
-
-The pipeline preserves the original HTML
-and produces a structured CSV dataset
-containing extracted metadata.
-
-## Approach
-
-The project uses a modular Python pipeline
-to acquire, validate, transform, and save HTML data.
-
-The pipeline has four stages:
-
-- **Extract** - retrieve HTML from a web page.
-- **Validate** - verify that required HTML elements exist.
-- **Transform** - extract text and metadata into a structured dataset.
-- **Load** - save the processed data to a CSV file.
-
-The example uses Requests for HTTP acquisition,
-BeautifulSoup for HTML parsing,
-and Pandas for tabular data processing.
-
-The Transform stage also calculates
-derived fields such as abstract word count
-and number of authors.
-
-Explore these important project components:
-
-- [pyproject.toml](pyproject.toml) - project identity, dependencies, and tool configuration.
-- [src/nlp/pipeline_web_html.py](src/nlp/pipeline_web_html.py) - main EVTL pipeline orchestrator.
-- [src/nlp/config.py](src/nlp/config.py) - example web page and path configuration.
-- [src/nlp/stage01_extract.py](src/nlp/stage01_extract.py) - retrieve HTML.
-- [src/nlp/stage02_validate.py](src/nlp/stage02_validate.py) - validate HTML structure.
-- [src/nlp/stage03_transform.py](src/nlp/stage03_transform.py) - extract metadata and build a DataFrame.
-- [src/nlp/stage04_load.py](src/nlp/stage04_load.py) - save processed results.
-- [tests/](tests/) - automated tests.
-- [.github/workflows/](.github/workflows/) - automated testing and documentation deployment.
-- [docs/](docs/) - project documentation.
-- [zensical.toml](zensical.toml) - documentation configuration.
-
-The goal is to understand how information
-is extracted from semi-structured web documents
-and transformed into analysis-ready data.
+This project will request an arXiv page and process its contents
+using a Python ETVL pipeline. Update the project name and add details
+about the page and the pipeline as they are established.
 
 ## Run the Project
 
-Follow the [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
-to set up your machine and project environment.
+TODO: Add setup instructions and links that apply to this project.
 
-From a VS Code terminal in the project root:
+Example command (update when the project structure is established):
 
 ```shell
 uv run python -m nlp.pipeline_web_html
 ```
 
-## Results
-
-The pipeline retrieves an HTML document,
-validates its structure,
-extracts bibliographic information,
-and writes the results to a CSV file.
-
-The resulting dataset includes text and metadata
-along with derived measures
-such as abstract word count and author count.
-
-Successful execution produces:
-
-```shell
-========================
-Pipeline executed successfully!
-========================
-```
-
-The following files are created:
-
-- `project.log` - pipeline execution log.
-- `data/raw/case_raw.html` - original HTML document.
-- `data/processed/case_processed.csv` - extracted and transformed data.
-
-These artifacts provide evidence of successful
-HTML acquisition, validation, transformation, and persistence.
-
 ## Verification
 
-Run the automated tests:
+TODO: Document the checks relevant to this project. Existing test command:
 
 ```shell
 uv run python -m pytest
@@ -139,22 +35,11 @@ uv run python -m pytest
 
 ## Project Documentation
 
-The [hosted documentation site](https://denisecase.github.io/nlp-05-web-documents/)
-is published using Zensical and GitHub Pages.
-
-The documentation site is used to present the project report,
-covering such sections as data, methods, results, visualizations,
-interpretation, and conclusions.
+TODO: Add the documentation URL and describe what it covers once established.
 
 ## CI/CD and GitHub Actions
 
-This project includes continuous integration and continuous deployment (CI/CD)
-to check project files and publish the docs.
-
-GitHub Actions include:
-
-- [CI: Python and Documentation Checks](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/ci-python-zensical.yml)
-- [CD: Documentation Deployment](https://github.com/denisecase/nlp-05-web-documents/actions/workflows/deploy-zensical.yml)
+TODO: List the project's workflows and link to their correct repository URLs.
 
 ## Developer Reference
 
@@ -239,7 +124,7 @@ testing, documentation, and code quality.
 
 ## Links
 
-- [Hosted Documentation](https://denisecase.github.io/nlp-05-web-documents/)
+- Hosted Documentation: TODO (add link when published).
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
