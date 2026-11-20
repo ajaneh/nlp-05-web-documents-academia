@@ -11,24 +11,19 @@
 cff-version: "1.2.0"
 type: software
 
-title: "Web Mining and Applied NLP 05: Web Documents"
-date-released: "2026-04-01"
+title: "Project 05: arXiv Web Documents"
 
 authors:
-  - family-names: Case
-    given-names: Denise M.
-    orcid: "https://orcid.org/0000-0001-6165-7389"
-    affiliation: "Northwest Missouri State University, USA"
+  - family-names: Heyert
+    given-names: Alex
 
-repository-code: "https://github.com/denisecase/nlp-05-web-documents"
-url: "https://github.com/denisecase/nlp-05-web-documents"
+repository-code: "https://github.com/ajaneh/nlp-05-web-documents-academia"
+url: "https://github.com/ajaneh/nlp-05-web-documents-academia"
 license: MIT
 
 abstract: |
-  Web Mining and Applied NLP Example Project 5 - extracting structured data
-  from HTML web pages using an EVTL pipeline, BeautifulSoup, and Pandas.
-  Demonstrates web scraping, HTML parsing, and transformation of web content
-  into analysis-ready tabular data.
+  Project 05 requests an arXiv page and extracts structured information
+  from its HTML using an EVTL pipeline, BeautifulSoup, and Pandas.
 
 keywords:
   # identity

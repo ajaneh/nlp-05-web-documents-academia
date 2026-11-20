@@ -37,7 +37,7 @@ Consider what happens when an expected element is missing.
 Follow [Workflow C: Start New Project](https://denisecase.github.io/pro-analytics-02/workflow-c-start-new-project/).
 
 IMPORTANT: New repository name:
-**nlp-05-web-documents-custom**.
+**nlp-05-web-documents-academia**.
 
 VERIFY: You have completed git add-commit-push to GitHub at least twice.
 
@@ -124,7 +124,7 @@ Include a clickable link to your repository and artifacts.
 - [ ] docs/index.md project-specific links use **your GitHub account**.
 - [ ] docs/index.md project-specific links use **your custom repository name**.
 - [ ] pyproject.toml `name` has been changed to use **your custom repository name**.
-- [ ] The `src/nlp` folder reflects your authorship and custom work.
+- [ ] The `src/nlp_custom` folder reflects your authorship and custom work.
 - [ ] The custom EVTL pipeline processes your selected document.
 - [ ] The raw HTML and processed CSV artifacts are available.
 - [ ] All necessary commands are provided and work successfully.

@@ -13,7 +13,7 @@ exclude-newer-span = "P7D"
 
 [options.exclude-newer-package]
 datafun-toolkit = false
-nlp = false
+nlp-custom = false
 
 [[package]]
 name = "appnope"
@@ -1008,7 +1008,7 @@ wheels = [
 ]
 
 [[package]]
-name = "nlp"
+name = "nlp-custom"
 version = "0.1.0"
 source = { editable = "." }
 default-groups = "all"

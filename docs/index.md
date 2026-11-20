@@ -96,10 +96,10 @@ provide inputs for subsequent NLP analysis.
 
 ## Project Links
 
-- [GitHub Repository](https://github.com/denisecase/nlp-05-web-documents)
-- [Example Pipeline](https://github.com/denisecase/nlp-05-web-documents/blob/main/src/nlp/pipeline_web_html.py)
-- [Example Configuration](https://github.com/denisecase/nlp-05-web-documents/blob/main/src/nlp/config.py)
-- [Pipeline Stages](https://github.com/denisecase/nlp-05-web-documents/tree/main/src/nlp)
+- [GitHub Repository](https://github.com/ajaneh/nlp-05-web-documents-academia)
+- [Pipeline](https://github.com/ajaneh/nlp-05-web-documents-academia/blob/main/src/nlp_custom/pipeline_web_html.py)
+- [Configuration](https://github.com/ajaneh/nlp-05-web-documents-academia/blob/main/src/nlp_custom/config.py)
+- [Pipeline Stages](https://github.com/ajaneh/nlp-05-web-documents-academia/tree/main/src/nlp_custom)
 
 ## Project Resources
 

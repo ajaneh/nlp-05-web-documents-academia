@@ -1,4 +1,4 @@
-# Project 05: TODO
+# Project 05: arXiv Web Documents
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
 [![uv managed](https://img.shields.io/badge/uv-managed-DE5FE9)](https://docs.astral.sh/uv/)
@@ -11,23 +11,20 @@
 
 ## Project Overview
 
-This project will request an arXiv page and process its contents
-using a Python ETVL pipeline. Update the project name and add details
-about the page and the pipeline as they are established.
+This project requests an arXiv page and processes its contents
+using a Python ETVL pipeline.
 
 ## Run the Project
 
-TODO: Add setup instructions and links that apply to this project.
-
-Example command (update when the project structure is established):
+From the project root, run the pipeline:
 
 ```shell
-uv run python -m nlp.pipeline_web_html
+uv run python -m nlp_custom.pipeline_web_html
 ```
 
 ## Verification
 
-TODO: Document the checks relevant to this project. Existing test command:
+Run the automated tests:
 
 ```shell
 uv run python -m pytest
@@ -35,11 +32,13 @@ uv run python -m pytest
 
 ## Project Documentation
 
-TODO: Add the documentation URL and describe what it covers once established.
+The [hosted documentation site](https://ajaneh.github.io/nlp-05-web-documents-academia/)
+contains the project report and supporting materials.
 
 ## CI/CD and GitHub Actions
 
-TODO: List the project's workflows and link to their correct repository URLs.
+GitHub Actions run [Python and documentation checks](https://github.com/ajaneh/nlp-05-web-documents-academia/actions/workflows/ci-python-zensical.yml)
+and [deploy the documentation](https://github.com/ajaneh/nlp-05-web-documents-academia/actions/workflows/deploy-zensical.yml).
 
 ## Developer Reference
 
@@ -124,7 +123,7 @@ testing, documentation, and code quality.
 
 ## Links
 
-- Hosted Documentation: TODO (add link when published).
+- [Hosted Documentation](https://ajaneh.github.io/nlp-05-web-documents-academia/)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)

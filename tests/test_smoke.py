@@ -7,10 +7,10 @@ import pandas as pd
 import pytest
 import requests
 
-from nlp.stage01_extract import run_extract
-from nlp.stage02_validate import run_validate
-from nlp.stage03_transform import run_transform
-from nlp.stage04_load import run_load
+from nlp_custom.stage01_extract import run_extract
+from nlp_custom.stage02_validate import run_validate
+from nlp_custom.stage03_transform import run_transform
+from nlp_custom.stage04_load import run_load
 
 HTML = """<html><head><link rel="canonical" href="https://arxiv.org/abs/1234.56789"></head>
 <body>
