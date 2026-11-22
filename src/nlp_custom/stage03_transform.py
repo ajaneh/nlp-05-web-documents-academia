@@ -133,6 +133,23 @@ def run_transform(
 
     # Abstract tag from <blockquote class="abstract">
     abstract_tag: Tag | None = soup.find("blockquote", class_="abstract")
+    doi_td = soup.find("td", class_="doi")
+
+    if doi_td:
+        # 2. Find the <a> tag inside it and get the 'href' or 'data-doi' attribute
+        link_tag = doi_td.find("a")
+    else:
+        link_tag = None
+
+    if link_tag:
+        related_doi_url = link_tag.get(
+            "href"
+        )  # 'https://doi.org/10.3847/1538-4357/addbd7'
+        related_doi_id = link_tag.get("data-doi")  # '10.3847/1538-4357/addbd7'
+        LOG.info(f"Found URL: {related_doi_url}")
+    else:
+        related_doi_url = "unknown"
+        related_doi_id = "unknown"
 
     # Extract title text from the tag, or use "unknown" if tag not found.
     # The arXiv page includes "Title:" as a descriptor inside the tag: strip it.
@@ -159,7 +176,8 @@ def run_transform(
     # .find_all("a") returns a list of Tag objects, one per author.
     # If the authors_tag is None (not found), we use an empty list.
     author_tags_list: list[Tag] = authors_tag.find_all("a") if authors_tag else []
-
+    number_of_authors: int = len(author_tags_list)
+    LOG.info(f"Found {number_of_authors} author tags in the authors <div>")
     # Now we extract the text from each author Tag in the list.
     # We use a list comprehension as a concise way to transform one list into another.
     # It loops over each tag in the list and calls .get_text().
@@ -277,6 +295,8 @@ def run_transform(
         "abstract": abstract,
         "abstract_word_count": abstract_word_count,
         "author_count": author_count,
+        "doi_url": related_doi_url,
+        "doi_id": related_doi_id,
     }
 
     df = pd.DataFrame([record])

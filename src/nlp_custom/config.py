@@ -4,7 +4,7 @@
 Alex Heyert November 2026.
 
 Stores configuration values for the web document EVTL pipeline.
-Source: TODO: arXiv abstract page for "Agents of Chaos" (2602.20021)
+Source: TODO: arXiv abstract page for "Modern Earth-like Chemical Disequilibrium Biosignatures Are Challenging To Constrain Through Spectroscopic Retrievals" (2505.16231)
 
 Purpose
 
@@ -26,8 +26,8 @@ from pathlib import Path
 # API CONFIGURATION
 # ============================================================
 
-# TODO: In your custom app, change the URL to work with a different page.
-PAGE_URL: str = "https://arxiv.org/abs/2602.20021"
+# New ArXiv abstract page
+PAGE_URL: str = "https://arxiv.org/abs/2505.16231"
 # arXiv abstract page - stable, scraping-friendly, academically relevant
 
 # Let them know who we are (and that we're doing educational web mining).
@@ -44,7 +44,7 @@ DATA_PATH: Path = ROOT_PATH / "data"
 RAW_PATH: Path = DATA_PATH / "raw"
 PROCESSED_PATH: Path = DATA_PATH / "processed"
 
-# TODO: In your custom app, change the output file names from case_
-# to something that represents YOUR custom project.
-RAW_HTML_PATH: Path = RAW_PATH / "case_raw.html"
-PROCESSED_CSV_PATH: Path = PROCESSED_PATH / "case_processed.csv"
+
+# changed URLs for phase 4
+RAW_HTML_PATH: Path = RAW_PATH / "phase4_raw.html"
+PROCESSED_CSV_PATH: Path = PROCESSED_PATH / "phase4_processed.csv"
