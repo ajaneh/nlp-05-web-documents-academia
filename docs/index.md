@@ -1,5 +1,7 @@
 # Web Mining and Applied NLP Project Report
 
+Alex Heyert | November 2026 | Project 05
+
 ## Selected document and source URL
 
 I chose [arXiv:2505.16231](https://arxiv.org/abs/2505.16231), *Modern Earth-like Chemical Disequilibrium Biosignatures Are Challenging To Constrain Through Spectroscopic Retrievals*, because it was coauthored by Dr. Gerrick Lindberg, my master’s thesis advisor at Northern Arizona University. I’m grateful for his guidance during my graduate research.
