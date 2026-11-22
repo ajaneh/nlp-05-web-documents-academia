@@ -6,39 +6,23 @@
 [![Zensical docs](https://img.shields.io/badge/Zensical-docs-purple)](https://zensical.org/)
 [![MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
-- **Author:** Alex Heyert
-- **Date:** November 2026
+**Author:** Alex Heyert
+**Date:** November 2026
 
-## Project Overview
+This project applies an HTML EVTL pipeline to [*Modern Earth-like Chemical Disequilibrium Biosignatures Are Challenging To Constrain Through Spectroscopic Retrievals*](https://arxiv.org/abs/2505.16231) (arXiv:2505.16231). The pipeline extracted and validated the arXiv page, preserved the raw HTML, and produced a processed record with **7 authors**, **250 abstract words**, and **5** case-insensitive matches for the phrase "chemical disequilibrium," along with a word cloud generated from the abstract.
 
-This project requests an arXiv page and processes its contents
-using a Python ETVL pipeline.
+![Word cloud generated from the extracted abstract](docs/assets/abstract_wordcloud.png)
 
-## Run the Project
-
-From the project root, run the pipeline:
+### Setup and run
 
 ```shell
+uv sync
 uv run python -m nlp_custom.pipeline_web_html
 ```
 
-## Verification
-
-Run the automated tests:
-
-```shell
-uv run python -m pytest
-```
-
-## Project Documentation
-
-The [hosted documentation site](https://ajaneh.github.io/nlp-05-web-documents-academia/)
-contains the project report and supporting materials.
-
-## CI/CD and GitHub Actions
-
-GitHub Actions run [Python and documentation checks](https://github.com/ajaneh/nlp-05-web-documents-academia/actions/workflows/ci-python-zensical.yml)
-and [deploy the documentation](https://github.com/ajaneh/nlp-05-web-documents-academia/actions/workflows/deploy-zensical.yml).
+- [Hosted documentation](https://ajaneh.github.io/nlp-05-web-documents-academia/)
+- [Original example pipeline](src/nlp/pipeline_web_html.py)
+- [Source paper](https://arxiv.org/abs/2505.16231)
 
 ## Developer Reference
 

@@ -45,12 +45,15 @@ def test_html_stages_extract_document_metadata(monkeypatch, tmp_path):
 
     assert raw_path.read_text(encoding="utf-8") == HTML
     assert csv_path.stat().st_size > 0
-    saved = pd.read_csv(csv_path, dtype={"arxiv_id": str})
+    saved = pd.read_csv(csv_path, dtype={"arxiv_id": str}, keep_default_na=False)
     assert saved.loc[0, "title"] == "Example Paper"
     assert saved.loc[0, "authors"] == "Ada, Grace"
     assert saved.loc[0, "arxiv_id"] == "1234.56789"
     assert saved.loc[0, "author_count"] == 2
     assert saved.loc[0, "abstract_word_count"] == 4
+    assert saved.loc[0, "chemical_disequilibrium_count"] == 0
+    assert saved.loc[0, "journal_doi_url"] == ""
+    assert saved.loc[0, "journal_doi"] == ""
 
 
 def test_html_validation_requires_an_abstract():

@@ -1,26 +1,4 @@
-"""src/nlp_custom/stage02_validate.py - Validate Stage.
-
-(EDIT YOUR VERSION OF THIS FILE)
-Alex Heyert November 2026.
-Source: Raw HTML string
-Sink:   BeautifulSoup object (in memory)
-
-Purpose
-
-  Validates that the expected page structure is present.
-
-Analytical Questions
-
-- What is the top-level structure of the HTML document?
-- What elements are present in the document?
-- What data types are associated with each field?
-- Does the data meet expectations for transformation?
-
-Edit your Python file to:
-- inspect the HTML structure for your API,
-- validate the presence of required HTML elements,
-- confirm the data is usable for your analysis.
-"""
+"""Stage 02: validate that the expected HTML structure is present."""
 
 # ============================================================
 # Section 1. Setup and Imports
@@ -57,14 +35,8 @@ def run_validate(
     # ============================================================
 
     LOG.info("HTML STRUCTURE INSPECTION:")
-
-    # Parse the HTML content using BeautifulSoup
     soup = BeautifulSoup(html_content, "html.parser")
-
-    # Log the type of the top-level HTML structure.
     LOG.info(f"Top-level type: {type(soup).__name__}")
-
-    # Log the top-level elements in the HTML document
     LOG.info(
         f"Top-level elements: {[element.name for element in soup.find_all(recursive=False)]}"
     )
@@ -72,13 +44,12 @@ def run_validate(
     # ============================================================
     # VALIDATE EXPECTATIONS
     # ============================================================
-
-    # Check for expected structural elements
     title = soup.find("h1", class_="title")
     authors = soup.find("div", class_="authors")
     abstract = soup.find("blockquote", class_="abstract")
     subjects = soup.find("div", class_="subheader")
     dateline = soup.find("div", class_="dateline")
+    # Not checking for related doi since it may not always be present
 
     LOG.info("VALIDATE: Title found: %s", title is not None)
     LOG.info("VALIDATE: Authors found: %s", authors is not None)
@@ -106,6 +77,4 @@ def run_validate(
 
     LOG.info("VALIDATE: HTML structure is valid.")
     LOG.info("Sink: validated BeautifulSoup object")
-
-    # Return the validated BeautifulSoup object for use in the next stage.
     return soup

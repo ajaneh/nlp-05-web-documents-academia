@@ -1,108 +1,40 @@
 # Web Mining and Applied NLP Project Report
 
-Web Mining and Applied NLP | Project 05 | Example Report
+## Selected document and source URL
 
-## Overview
+I chose [arXiv:2505.16231](https://arxiv.org/abs/2505.16231), *Modern Earth-like Chemical Disequilibrium Biosignatures Are Challenging To Constrain Through Spectroscopic Retrievals*, because it was coauthored by Dr. Gerrick Lindberg, my master’s thesis advisor at Northern Arizona University. I’m grateful for his guidance during my graduate research.
 
-This project introduces web document acquisition
-and structured information extraction from HTML.
+## Information selected for extraction
 
-The objective is to retrieve an HTML document,
-validate its structure,
-extract meaningful text and metadata,
-and persist the results for analysis.
+The pipeline extracts the paper’s arXiv ID, title, authors, subjects, submission date, abstract, journal DOI URL, and journal DOI. Transformation then pulls the paper metadata and abstract text into a structured record and writes the processed CSV.
 
-The project extends the EVTL architecture
-introduced in Module 4
-from structured JSON API responses
-to semi-structured HTML documents.
+## HTML structure and validation requirements
 
-## Tools and Methods
+The pipeline extracts the arXiv abstract page HTML with `requests`, saves the raw document, and parses it with BeautifulSoup. Validation checks that the required elements are present before transformation: the title, authors, abstract, subject block, and dateline.
 
-The project uses:
+## Transformation and derived fields
 
-- Python for pipeline orchestration and processing.
-- Requests for retrieving HTML documents.
-- BeautifulSoup for parsing and inspecting HTML.
-- HTML selectors for locating document content.
-- Validation checks for confirming required elements.
-- Pandas for structured data transformation.
-- CSV for persistent output.
-- Logging for execution records.
-- Ruff, ty, and pytest for code verification.
-- Zensical and GitHub Pages for published documentation.
+The extracted paper metadata and abstract text are normalized into a structured CSV record. Derived fields reported for this paper include abstract word count (**250**), author count (**7**), and case-insensitive matches for the phrase "chemical disequilibrium" (**5**).
 
-The example retrieves an academic paper's
-abstract page from arXiv.
+## Results
 
-The pipeline implements four stages:
+- Authors: **7**
+- Abstract word count: **250**
+- Case-insensitive matches for the phrase "chemical disequilibrium": **5**
 
-- **Extract** - retrieve HTML and preserve the source document.
-- **Validate** - verify that required document elements exist.
-- **Transform** - extract metadata and calculate derived fields.
-- **Load** - save the structured results to a CSV file.
+![Word cloud generated from the extracted abstract](assets/abstract_wordcloud.png)
 
-The Transform stage extracts fields including
-the paper title, authors, abstract,
-subject categories, and submission information.
+## Interpretation and limitations
 
-It also calculates abstract word count
-and author count.
+I expected the related DOI field on arXiv to point to the published journal version of the preprint. I confirmed that by following the extracted DOI URL from the page metadata, [https://doi.org/10.3847/1538-4357/addbd7](https://doi.org/10.3847/1538-4357/addbd7), which identifies the corresponding journal article. A missing DOI in this pipeline only means arXiv did not list one for that record; it does not prove that no journal publication exists elsewhere.
 
-## Verification
+**Limitation:** The extraction depends on arXiv's current HTML structure and selectors, so layout changes or page variations could break field retrieval without code updates.
 
-A successful execution displays:
+**Next step:** Extend the pipeline to process a small set of related papers and compare extracted metadata and phrase counts across them.
 
-    Pipeline executed successfully!
+## Links
 
-The pipeline records execution details in a project log.
-
-The following artifacts are created:
-
-- `data/raw/case_raw.html` - original HTML document.
-- `data/processed/case_processed.csv` - extracted and transformed data.
-
-These results demonstrate that the pipeline can
-acquire, validate, extract, and persist
-information from an HTML document.
-
-Automated tests provide additional verification
-of the pipeline's expected behavior.
-
-## Interpretation
-
-HTML documents are primarily designed
-for presentation in web browsers.
-
-Extracting structured information requires
-understanding the document's elements,
-attributes, and organization.
-
-Changes in page structure can affect
-validation and extraction results.
-
-Explicit validation and transformation stages
-help identify these problems
-and make web mining workflows more reproducible.
-
-The resulting structured text and metadata
-provide inputs for subsequent NLP analysis.
-
-## Documentation Index
-
-- **Home** - this landing page
-- [**Project Instructions**](project-instructions.md)
-- [**Glossary**](glossary.md)
-
-## Project Links
-
-- [GitHub Repository](https://github.com/ajaneh/nlp-05-web-documents-academia)
-- [Pipeline](https://github.com/ajaneh/nlp-05-web-documents-academia/blob/main/src/nlp_custom/pipeline_web_html.py)
-- [Configuration](https://github.com/ajaneh/nlp-05-web-documents-academia/blob/main/src/nlp_custom/config.py)
-- [Pipeline Stages](https://github.com/ajaneh/nlp-05-web-documents-academia/tree/main/src/nlp_custom)
-
-## Project Resources
-
-- [Project Instructions](project-instructions.md)
-- [Professional Python Guide](https://denisecase.github.io/pro-analytics-02/)
-- [Professional Python Project Explainer](https://pup-pack.github.io/professional-python-project-explainer/)
+- [Source paper](https://arxiv.org/abs/2505.16231)
+- [Repository](https://github.com/ajaneh/nlp-05-web-documents-academia)
+- [Raw HTML](https://github.com/ajaneh/nlp-05-web-documents-academia/blob/main/data/raw/AH_GL_raw.html)
+- [Processed CSV](https://github.com/ajaneh/nlp-05-web-documents-academia/blob/main/data/processed/AH_GL_processed.csv)

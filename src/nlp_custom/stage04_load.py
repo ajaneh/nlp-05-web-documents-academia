@@ -1,15 +1,4 @@
-"""src/nlp_custom/stage04_load.py.
-
-NO EDITS REQUIRED IN THIS FILE (if paths have not changed.)
-Alex Heyert November 2026.
-
-Source:  DataFrame (in this case, a Pandas DataFrame, change if using polars)
-
-Sink: CSV file
-
-Notes:
-- This file should not require modification unless you change the DataFrame library.
-"""
+"""Stage 04: load the transformed DataFrame to CSV."""
 
 # ============================================================
 # Section 1. Setup and Imports
@@ -46,7 +35,4 @@ def run_load(
     LOG.info("========================")
 
     df.to_csv(processed_csv_path, index=False)
-
-    # Use the privacy-conscious
-    # log_path function to log the sink path.
     log_path(LOG, "SINK PATH", processed_csv_path)

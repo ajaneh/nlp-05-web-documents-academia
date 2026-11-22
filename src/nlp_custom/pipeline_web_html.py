@@ -1,37 +1,6 @@
-"""src/nlp_custom/pipeline_web_html.py - Module 5 Script.
+"""Orchestrate the web document EVTL pipeline.
 
-NO EDITS REQUIRED IN THIS FILE (if paths have not changed.)
-Alex Heyert November 2026.
-
-Purpose
-
-  Orchestrate a standard EVTL pipeline for web document data.
-  Illustrate how to fetch an HTML page, validate its structure,
-  transform it into usable structured data, and load it into a sink.
-  Illustrate how to parse HTML using BeautifulSoup to extract
-  metadata from a web document.
-
-
-Analytical Questions
-
-- How can we fetch an HTML page from the web and save it to a file?
-- How can we validate the structure and content of an HTML document?
-- How can we transform HTML into clean, structured data?
-- How can we load the transformed data into a sink (like a CSV file)?
-
-Notes:
-- This file should not require modification.
-- This is the main pipeline script that orchestrates the entire EVTL process.
-- It assumes a standard ETL pipeline enhanced with a VALIDATE stage,
-  making it an EVTL pipeline.
-- The stages are modularized into separate files for clarity and
-  maintainability.
-- Each stage has its own source and sink, which are clearly indicated
-  in the stage files.
-- The configuration values (like the page URL and file paths) are stored
-  in a separate config file.
-
-Run from root project folder with:
+Run from the project root with:
 
   uv run python -m nlp_custom.pipeline_web_html
 """
@@ -43,6 +12,7 @@ Run from root project folder with:
 import logging
 
 from datafun_toolkit.logger import get_logger, log_header, log_path
+from wordcloud import WordCloud
 
 from nlp_custom.config import (
     DATA_PATH,
@@ -110,6 +80,16 @@ def main() -> None:
         processed_csv_path=PROCESSED_CSV_PATH,
         LOG=LOG,
     )
+
+    # Save to docs/assets so the same image can be embedded in README and docs.
+    wordcloud_path = ROOT_PATH / "docs" / "assets" / "abstract_wordcloud.png"
+    wordcloud_path.parent.mkdir(parents=True, exist_ok=True)
+    abstract_text = str(df.loc[0, "abstract"]) if not df.empty else ""
+    wordcloud = WordCloud(width=1200, height=600, background_color="white").generate(
+        abstract_text or "abstract"
+    )
+    wordcloud.to_file(str(wordcloud_path))
+    log_path(LOG, "WORDCLOUD PATH", wordcloud_path)
 
     LOG.info("========================")
     LOG.info("Pipeline executed successfully!")

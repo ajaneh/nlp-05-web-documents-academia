@@ -1,20 +1,4 @@
-"""src/nlp_custom/stage01_extract.py - Stage 01: Extract.
-
-NO EDITS REQUIRED IN THIS FILE (if paths have not changed.)
-Alexanndra Heyert November 2026.
-
-Source: HTML page at configured URL
-Sink:   Raw HTML file at RAW_HTML_PATH
-
-The Extract stage is responsible for retrieving data
-from the source (in this case, an HTML page)
-and saving it to a file.
-It also returns the extracted data as a Python object
-for use in subsequent stages.
-
-Notes:
-- This file should not require modification.
-"""
+"""Stage 01: extract HTML from the configured source and save it to disk."""
 
 # ============================================================
 # Section 1. Setup and Imports
@@ -58,31 +42,12 @@ def run_extract(
     LOG.info("========================")
 
     LOG.info(f"EXTRACT: Fetching HTML from {source_url}")
-
-    # Use the requests.get() function to make an HTTP GET request
-    # to the source_url with the provided headers.
     response = requests.get(source_url, headers=http_request_headers, timeout=30)
-
-    # Use the raise_for_status() method to check for HTTP errors
-    # and raise an exception if the request was unsuccessful.
     response.raise_for_status()
 
-    # Use the .text attribute of the response object to get the HTML content
-    # and store it in a variable called html_content.
     html_content: str = response.text
-
-    # Use the write_text() method of the raw_html_path to
-    # save the raw HTML data to a file.
-    # Specify the encoding as "utf-8" to ensure proper handling of special characters.
     raw_html_path.write_text(html_content, encoding="utf-8")
 
-    # Use log.info() to log the source URL (a string).
-    # Use a formatted string (f-string) to include the variable in the log message.
     LOG.info(f"SOURCE URL = {source_url}")
-
-    # Use the privacy-conscious
-    # log_path function to log the sink path.
     log_path(LOG, "SINK PATH", raw_html_path)
-
-    # Return the extracted HTML content as a string.
     return html_content
